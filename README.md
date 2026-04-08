@@ -1,10 +1,10 @@
-\[!\[Open in MATLAB Online]
+[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=Camacho19212376/MSFPractica3)
 
-# Práctica: Sistema cardiovascular
+# Práctica: Sistema musculoesqueletico
 
 ## Información de la estudiante
 
-Corina Plata-Ante \[03210981]; corina.plata@tectijuana.edu.mx
+Tchandra Yahoel Camacho Llanes \[19212376]; L19212376@tijuana.tecnm.mx
 
 Modelado de Sistemas Fisiológicos
 
@@ -24,22 +24,20 @@ La asignatura de Modelado de Sistemas Fisiológicos forma parte del plan de estu
 
 ## Objetivos
 
-1\. Calcular la función de transferencia.
-2. Determinar el modelo de ecuaciones integro-diferenciales.
+1\. Convertir el diagrama mecánico al diagrama eléctrico.
+2. Calcular la función de transferencia aplicando el principio de superposición.
 3. Calcular el error en estado estacionario y la estabilidad en lazo abierto.
-4. Emular y simular la respuesta del circuito en Simulink/Simscape a la señal "Uniform Random Number" con la siguiente configuración: min = -0.2 V; max = 1 V; seed = 106; Sample time = 0.5.
-5. Sintonizar las ganancias de un controlador PID para eliminar el error entre la entrada y la salida del sistema normotenso-hipotenso y normotenso-hipertenso.
+4. Emular y simular la respuesta del circuito en Simulink/Simscape a la señal impulso unitario.
+5. Sintonizar las ganancias de un controlador PID para eliminar el error entre la entrada y la salida del sistema control-caso.
 6. Obtener la respuesta en lazo abierto y en lazo cerrado con el controlador PID en Spyder/Python con la función de transferencia.
 
 ## Descripción detallada del sistema
 
-El modelo de Windkessel de cuatro elementos contiene dos elementos dinámicos. Por lo tanto, se necesitan dos estados para describir la dinámica. El vector de estados se conforma por las variables FL(t) denotando el flujo a través de la inercia arterial total, y la variable Pp(t) representando la presión sobre la distensibilidad arterial. Entonces, asumiendo Pa(t) como la presión arterial de entrada, y en consecuencia a Fa(t) como el flujo hacia la aorta o arteria pulmonar. Los parámetros son Z, C, R y L, que representan respectivamente la impedancia característica del lecho vascular pulmonar (aorta y arteria pulmonar), la distensibilidad aérea total, la resistencia periférica y la inertancia arterial. Este modelo tiene muchas ventajas importantes, por ejemplo:
+El símbolo F se utiliza para describir la fuerza generada por el componente activo contráctil del músculo, mientras que F(t) corresponde a la fuerza efectiva que se obtiene al considerar las características mecánicas del tejido muscular. Se establece que ambas están relacionadas mediante la expresión F = αF(t), donde 0 < α < 1. Por otra parte, R representa la resistencia viscosa propia del tejido, en tanto que Cp (elemento elástico en paralelo) y Cs (elemento elástico en serie) modelan la capacidad de almacenamiento de energía elástica del sarcolema y de los tendones, respectivamente.
 
-1\. Su sencillez, unos pocos elementos interconectados son suficientes para reproducir la dinámica principal del sistema cardiovascular.
+La disposición en paralelo se plantea con el fin de incluir las limitaciones mecánicas que afectan a los elementos del modelo. Cuando el resorte Cp experimenta un alargamiento de magnitud Fs(t), el conjunto en serie formado por R y Cs también se deforma en la misma proporción. Asimismo, la suma de las fuerzas que circulan por ambas ramas del arreglo en paralelo debe ser equivalente a F(t). Aunque la elongación total de Cs y R debe coincidir con Fs(t), cada uno de estos elementos no necesariamente contribuye en igual medida. Así, si se supone que Cs se extiende una cantidad Fs₁(t), entonces la deformación correspondiente en la rama paralela que incluye R será Fs(t) − Fs₁(t). La rapidez de deformación del amortiguador asociado a R se determina derivando la expresión Fs(t) − Fs₁(t) con respecto al tiempo, es decir, d[Fs(t) − Fs₁(t)]/dt.
 
-2\. Existe una clara analogía entre los elementos eléctricos y los componentes hidráulicos implicados en el efecto Windkessel. En consecuencia, se relacionan fácilmente con el significado hemodinámico y el acoplamiento ventrículo-arterial.
-
-Palabras clave: ???; ???; ???; ???; ???
+Palabras clave: músculo, fuerza, resistencia, modelo, amortiguación.
 
 ## Lista de archivos incluidos en el repositorio
 
@@ -47,9 +45,8 @@ Palabras clave: ???; ???; ???; ???; ???
 2. Modelo de Simulink \[.slx].
 3. Archivos de Spyder \[.py].
 4. Imagen con los parámetros del controlador.
-5. Imágenes de las simulaciones \[.pdf].
+5. Imágenes de las simulaciones \[.pdf y .png].
 6. Evidencia del análisis matemático: función de transferencia, modelo de ecuaciones integro-diferenciales, error en estado estacionario y estabilidad en lazo abierto.
-
 7\. Modelo fisiológico en Biorender o BioArt.
 
 ## Referencias
@@ -61,4 +58,3 @@ Palabras clave: ???; ???; ???; ???; ???
 \[3] N. S. Nise, Control Systems Engineering, 8th ed. Hoboken, New Jersey, USA: John Wiley \& Sons, 2020.
 
 \[4] T. Kind, T. J. Faes, J. W. Lankhaar, A. Vonk-Noordegraaf \& M. Verhaegen, "Estimation of three-and four-element Windkessel parameters using subspace model identification", IEEE Transactions on Biomedical Engineering, vol. 57, issue 7, pp. 1531-1538, Jul 2010. https://doi.org/10.1109/TBME.2010.2041351
-
