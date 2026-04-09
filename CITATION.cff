@@ -1,0 +1,27 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: 'Practica: Sistema musculoesquelético '
+message: Modelado de Sistemas Fisiológicos/Ingeniería Biomédica
+type: software
+authors:
+  - given-names: Tchandra Yahoel
+    family-names: Camacho Llanes
+    email: l19212376@tijuana.tecnm.mx
+    affiliation: Tecnológico Nacional de México
+identifiers:
+  - type: url
+    value: 'https://github.com/Camacho19212376/MSFPractica3'
+    description: Repositorio GitHub
+repository-code: 'https://github.com/Camacho19212376/MSFPractica3'
+url: 'https://github.com/Camacho19212376/MSFPractica3'
+keywords:
+  - músculo
+  - fuerza
+  - resistencia
+  - modelo
+  - amortiguación
+license: BSD-2-Clause
+version: '1.0'
+date-released: '2026-04-08'
